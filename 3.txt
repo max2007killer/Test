@@ -1,1 +1,274 @@
-local t=string.byte;local r=string.char;local c=string.sub;local A=table.concat;local B=math.ldexp;local E=getfenv or function()return _ENV end;local u=setmetatable;local s=select;local i=unpack;local f=tonumber;local function h(t)local e,o,d="","",{}local n=256;local a={}for l=0,n-1 do a[l]=r(l)end;local l=1;local function i()local e=f(c(t,l,l),36)l=l+1;local o=f(c(t,l,l+e-1),36)l=l+e;return o end;e=r(i())d[1]=e;while l<#t do local l=i()if a[l]then o=a[l]else o=e..c(e,1,1)end;a[n]=e..c(o,1,1)d[#d+1],e,n=o,o,n+1 end;return table.concat(d)end;local f=h('24B24027524224427524027226T26G26C27727926V26P27126T24224A27925Z26T26C25F26T26A26E26X26R27K24727925C27026P26H27S26B27L27N27P28028228424227427526427326R26P27028928326A24224927925V26W26P26A26P26R26C27S24224527926828H27027028627525E26D27227R27T27V27X27925F28W26826826T26S27F27526F26P26X26C25227924424822O23325024827923K29V24G23K27524124824G24024Z29Y24024824W29V24Z24W2A423S2AG24Z23S2A424825C2A82AA24123K2A724Z2A3240247102AE102401G23Q2482AV29Y1G27Y2752592752B726829V2592682B123K2A029W2AV23L2542A724M2542752AI2AE2AG24023L2AI2A82AL2BV25426O2A82BQ2402B32AO2A92B12B82402BA2C924G2BE2A71G23L24W2BG2452BU23M2BU24I2AG2B723S2BE2AL1G23K25S29V25025S27523Y22W23Z24025722W23326N2CL2752512BU23L2BI2A82AV28O27524H27928Z2AG27M27524725C2332332592DR26N2442BJ2502AV28Z2A724Q27924C2602AE2602752452BX2AK2E924021C2A82DL2401W2EG2E92DF2AU2DP21S23223324Z2EP2D92AA2422AQ27924F27929L27A27C27E2DI24028Q28S28U28W28M28D24027O26C28Q26X27026S26A26T27224224327926126B25T2EW27925U26P26B26T25C28S27E2DO2F626P27225V27329326X26S26T27627827526627I27K28Z27525G27326A26B2732FT2752652FW26B27026T26B26B2402412GP24025I26T27028G29P26H2422CA2H228V2GL24J2FN27927B26F28C27925E27326C2H22H426R2H62D427529T29V24L2EX27524Z2792A52AJ2AQ2A62AP2A42AS2DG2DP21K2AE21K2B12CI2D02AC2BR25429V2412C42BW2AG2492BZ23M2B42752B62CA2CC2B726G2BE26G2IC24W2C22DA24023M26W27524I2J52B726O2BE2C21G23P24G2BG25A2A72BV24W1G2402J22IP2B024W2IS2402BE2BB23P25C2EJ25A2AO24023K26W2CY2J52C023424025B2IK2IF2C824023P26O2C72C22K02K22ER2K42BM2K624Z2K92I127523P26G2C72IY2JM2402DN27924724O2DS2592L02EU2762AA279279');local n=bit and bit.bxor or function(l,o)local e,n=1,0 while l>0 and o>0 do local a,c=l%2,o%2 if a~=c then n=n+e end l,o,e=(l-a)/2,(o-c)/2,e*2 end if l<o then l=o end while l>0 do local o=l%2 if o>0 then n=n+e end l,e=(l-o)/2,e*2 end return n end local function l(o,l,e)if e then local l=(o/2^(l-1))%2^((e-1)-(l-1)+1);return l-l%1;else local l=2^(l-1);return(o%(l+l)>=l)and 1 or 0;end;end;local e=1;local function o()local o,l,c,a=t(f,e,e+3);o=n(o,144)l=n(l,144)c=n(c,144)a=n(a,144)e=e+4;return(a*16777216)+(c*65536)+(l*256)+o;end;local function d()local l=n(t(f,e,e),144);e=e+1;return l;end;local function G()local e=o();local n=o();local c=1;local o=(l(n,1,20)*(2^32))+e;local e=l(n,21,31);local l=((-1)^l(n,32));if(e==0)then if(o==0)then return l*0;else e=1;c=0;end;elseif(e==2047)then return(o==0)and(l*(1/0))or(l*(0/0));end;return B(l,e-1023)*(c+(o/(2^52)));end;local a=o;local function h(l)local o;if(not l)then l=a();if(l==0)then return'';end;end;o=c(f,e,e+l-1);e=e+l;local e={}for l=1,#o do e[l]=r(n(t(c(o,l,l)),144))end return A(e);end;local e=o;local function r(...)return{...},s('#',...)end local function C()local f={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};local t={0};local e={};local a={f,nil,t,nil,e};local e=o()local c={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};for o=1,e do local e=d();local l;if(e==0)then l=(d()~=0);elseif(e==3)then l=G();elseif(e==2)then l=h();end;c[o]=l;end;a[2]=c for a=1,o()do local c=n(o(),5);local o=n(o(),35);local n=l(c,1,2);local e=l(o,1,11);local e={e,l(c,3,11),nil,nil,o};if(n==0)then e[3]=l(c,12,20);e[5]=l(c,21,29);elseif(n==1)then e[3]=l(o,12,33);elseif(n==2)then e[3]=l(o,12,32)-1048575;elseif(n==3)then e[3]=l(o,12,32)-1048575;e[5]=l(c,21,29);end;f[a]=e;end;for l=1,o()do t[l-1]=C();end;a[4]=d();return a;end;local function B(l,A,h)local o=l[1];local e=l[2];local n=l[3];local l=l[4];return function(...)local a=o;local c=e;local C=n;local n=l;local l=r local e=1;local t=-1;local G={};local d={...};local f=s('#',...)-1;local r={};local o={};for l=0,f do if(l>=n)then G[l-n]=d[l+1];else o[l]=d[l+1];end;end;local l=f-n+1 local l;local n;while true do l=a[e];n=l[1];if n<=21 then if n<=10 then if n<=4 then if n<=1 then if n==0 then local e=l[2];local c={};local n=0;local l=e+l[3]-1;for l=e+1,l do n=n+1;c[n]=o[l];end;o[e](i(c,1,l-e));t=e;else o[l[2]][c[l[3]]]=o[l[5]];end;elseif n<=2 then o[l[2]]=A[l[3]];elseif n>3 then if not o[l[2]]then e=e+1;else e=e+l[3];end;else if(o[l[2]]==c[l[5]])then e=e+1;else e=e+l[3];end;end;elseif n<=7 then if n<=5 then o[l[2]]=h[c[l[3]]];elseif n==6 then o[l[2]]=o[l[3]];else o[l[2]]=h[c[l[3]]];end;elseif n<=8 then local t=C[l[3]];local d;local n={};d=u({},{__index=function(e,l)local l=n[l];return l[1][l[2]];end,__newindex=function(o,l,e)local l=n[l]l[1][l[2]]=e;end;});for c=1,l[5]do e=e+1;local l=a[e];if l[1]==6 then n[c-1]={o,l[3]};else n[c-1]={A,l[3]};end;r[#r+1]=n;end;o[l[2]]=B(t,d,h);elseif n>9 then do return end;else o[l[2]]=o[l[3]][c[l[5]]];end;elseif n<=15 then if n<=12 then if n>11 then local n;local d;local i,d;local f;o[l[2]]=o[l[3]][c[l[5]]];e=e+1;l=a[e];f=l[2];i,d={o[f]()};d=f+l[5]-2;n=0;for l=f,d do n=n+1;o[l]=i[n];end;t=d;e=e+1;l=a[e];o[l[2]][c[l[3]]]=o[l[5]];e=e+1;l=a[e];o[l[2]]=h[c[l[3]]];e=e+1;l=a[e];o[l[2]]=o[l[3]][c[l[5]]];e=e+1;l=a[e];f=l[2];i,d={o[f]()};d=f+l[5]-2;n=0;for l=f,d do n=n+1;o[l]=i[n];end;t=d;e=e+1;l=a[e];o[l[2]][c[l[3]]]=o[l[5]];else local e=l[2];local c={};local n=0;local l=e+l[3]-1;for l=e+1,l do n=n+1;c[n]=o[l];end;o[e](i(c,1,l-e));t=e;end;elseif n<=13 then o[l[2]][c[l[3]]]=c[l[5]];elseif n==14 then e=e+l[3];else local e=l[2];local n=o[l[3]];o[e+1]=n;o[e]=n[c[l[5]]];end;elseif n<=18 then if n<=16 then local e=l[2];local c,n={o[e]()};local n=e+l[5]-2;local l=0;for e=e,n do l=l+1;o[e]=c[l];end;t=n;elseif n>17 then local a=l[2];local c={};for l=1,#r do local l=r[l];for e=0,#l do local l=l[e];local n=l[1];local e=l[2];if n==o and e>=a then c[e]=n[e];l[1]=c;end;end;end;else if o[l[2]]then e=e+1;else e=e+l[3];end;end;elseif n<=19 then local A;local f;local d;local r;local s;local n;o[l[2]]=h[c[l[3]]];e=e+1;l=a[e];n=l[2];s=o[l[3]];o[n+1]=s;o[n]=s[c[l[5]]];e=e+1;l=a[e];o[l[2]]=c[l[3]];e=e+1;l=a[e];n=l[2];r={};d=0;f=n+l[3]-1;for l=n+1,f do d=d+1;r[d]=o[l];end;A={o[n](i(r,1,f-n))};f=n+l[5]-2;d=0;for l=n,f do d=d+1;o[l]=A[d];end;t=f;e=e+1;l=a[e];n=l[2];s=o[l[3]];o[n+1]=s;o[n]=s[c[l[5]]];e=e+1;l=a[e];n=l[2];r={};d=0;f=n+l[3]-1;for l=n+1,f do d=d+1;r[d]=o[l];end;A={o[n](i(r,1,f-n))};f=n+l[5]-2;d=0;for l=n,f do d=d+1;o[l]=A[d];end;t=f;e=e+1;l=a[e];e=e+l[3];elseif n==20 then if(o[l[2]]==c[l[5]])then e=e+1;else e=e+l[3];end;else local s;local f;local d;local h;local r;local n;n=l[2];r=o[l[3]];o[n+1]=r;o[n]=r[c[l[5]]];e=e+1;l=a[e];o[l[2]]=c[l[3]];e=e+1;l=a[e];n=l[2];h={};d=0;f=n+l[3]-1;for l=n+1,f do d=d+1;h[d]=o[l];end;s={o[n](i(h,1,f-n))};f=n+l[5]-2;d=0;for l=n,f do d=d+1;o[l]=s[d];end;t=f;e=e+1;l=a[e];o[l[2]]=o[l[3]][c[l[5]]];e=e+1;l=a[e];if(o[l[2]]==o[l[5]])then e=e+1;else e=e+l[3];end;end;elseif n<=32 then if n<=26 then if n<=23 then if n==22 then local B;local f;local d;local r;local s;local n;o[l[2]]=h[c[l[3]]];e=e+1;l=a[e];o[l[2]]=A[l[3]];e=e+1;l=a[e];o[l[2]]=o[l[3]][c[l[5]]];e=e+1;l=a[e];n=l[2];s=o[l[3]];o[n+1]=s;o[n]=s[c[l[5]]];e=e+1;l=a[e];n=l[2];r={};d=0;f=n+l[3]-1;for l=n+1,f do d=d+1;r[d]=o[l];end;B={o[n](i(r,1,f-n))};f=n+l[5]-2;d=0;for l=n,f do d=d+1;o[l]=B[d];end;t=f;e=e+1;l=a[e];e=e+l[3];else local e=l[2];local c,n={o[e]()};local n=e+l[5]-2;local l=0;for e=e,n do l=l+1;o[e]=c[l];end;t=n;end;elseif n<=24 then local d=C[l[3]];local c;local n={};c=u({},{__index=function(e,l)local l=n[l];return l[1][l[2]];end,__newindex=function(o,l,e)local l=n[l]l[1][l[2]]=e;end;});for c=1,l[5]do e=e+1;local l=a[e];if l[1]==6 then n[c-1]={o,l[3]};else n[c-1]={A,l[3]};end;r[#r+1]=n;end;o[l[2]]=B(d,c,h);elseif n==25 then local s;local f;local d;local r;local h;local n;n=l[2];h=o[l[3]];o[n+1]=h;o[n]=h[c[l[5]]];e=e+1;l=a[e];o[l[2]]=c[l[3]];e=e+1;l=a[e];n=l[2];r={};d=0;f=n+l[3]-1;for l=n+1,f do d=d+1;r[d]=o[l];end;s={o[n](i(r,1,f-n))};f=n+l[5]-2;d=0;for l=n,f do d=d+1;o[l]=s[d];end;t=f;e=e+1;l=a[e];o[l[2]]=o[l[3]][c[l[5]]];e=e+1;l=a[e];n=l[2];h=o[l[3]];o[n+1]=h;o[n]=h[c[l[5]]];e=e+1;l=a[e];n=l[2];r={};d=0;f=n+l[3]-1;for l=n+1,f do d=d+1;r[d]=o[l];end;o[n](i(r,1,f-n));t=n;e=e+1;l=a[e];e=e+l[3];else o[l[2]]=A[l[3]];end;elseif n<=29 then if n<=27 then o[l[2]]=c[l[3]];elseif n==28 then e=e+l[3];else o[l[2]][c[l[3]]]=c[l[5]];end;elseif n<=30 then local n=l[2];local c={};local e=0;local a=n+l[3]-1;for l=n+1,a do e=e+1;c[e]=o[l];end;local c={o[n](i(c,1,a-n))};local l=n+l[5]-2;e=0;for l=n,l do e=e+1;o[l]=c[e];end;t=l;elseif n==31 then if o[l[2]]then e=e+1;else e=e+l[3];end;else if(o[l[2]]==o[l[5]])then e=e+1;else e=e+l[3];end;end;elseif n<=37 then if n<=34 then if n==33 then do return end;else o[l[2]]=c[l[3]];end;elseif n<=35 then if not o[l[2]]then e=e+1;else e=e+l[3];end;elseif n>36 then o[l[2]][c[l[3]]]=o[l[5]];else local a=l[2];local c={};for l=1,#r do local l=r[l];for e=0,#l do local l=l[e];local n=l[1];local e=l[2];if n==o and e>=a then c[e]=n[e];l[1]=c;end;end;end;end;elseif n<=40 then if n<=38 then o[l[2]]=o[l[3]][c[l[5]]];elseif n==39 then if(o[l[2]]==o[l[5]])then e=e+1;else e=e+l[3];end;else local n=l[2];local c=l[5];local l=n+2;local a={o[n](o[n+1],o[l])};for e=1,c do o[l+e]=a[e];end;local n=o[n+3];if n then o[l]=n else e=e+1;end;end;elseif n<=41 then local n=l[2];local a=l[5];local l=n+2;local c={o[n](o[n+1],o[l])};for e=1,a do o[l+e]=c[e];end;local n=o[n+3];if n then o[l]=n else e=e+1;end;elseif n==42 then local n=l[2];local c={};local e=0;local a=n+l[3]-1;for l=n+1,a do e=e+1;c[e]=o[l];end;local c={o[n](i(c,1,a-n))};local l=n+l[5]-2;e=0;for l=n,l do e=e+1;o[l]=c[e];end;t=l;else local n=l[2];local e=o[l[3]];o[n+1]=e;o[n]=e[c[l[5]]];end;e=e+1;end;end;end;return B(C(),{},E())();
+local rs = game:GetService("RunService")
+local ts = game:GetService("TweenService")
+
+local function object(class, properties)
+	local localObject = Instance.new(class)
+
+	pcall(function()
+		localObject.BorderSizePixel = 0
+		localObject.BackgroundColor3 = Color3.fromRGB(255,255,255)
+		localObject.AutoButtonColor = false
+	end)
+
+	for property, value in next, properties do
+		localObject[property] = value
+	end
+
+	local methods = {}
+
+	function methods:object(class, properties)
+		if not properties["Parent"] then
+			properties.Parent = localObject
+		end
+		return object(class, properties)
+	end
+
+	function methods:round(radius)
+		radius = radius or 4
+		object("UICorner", {
+			Parent = localObject,
+			CornerRadius = UDim.new(0, radius)
+		})
+		return methods
+	end
+
+	function methods:tween(mutations)
+		ts:Create(localObject, TweenInfo.new(0.25), mutations):Play()
+	end
+
+	methods.AbsoluteObject = localObject
+
+	return setmetatable(methods, {
+		__index = function(_, k)
+			return localObject[k]
+		end,
+		__newindex = function(_, k, v)
+			localObject[k] = v
+		end,
+	})
+end
+
+--[[if not ((rs:IsStudio() and game.Players.LocalPlayer.PlayerGui) or game.CoreGui):FindFirstChild("Abstract Notifications") then
+
+end]]
+
+local gui = object("ScreenGui", {
+	Parent = (rs:IsStudio() and game.Players.LocalPlayer.PlayerGui) or game.CoreGui
+})
+
+local notifications = {
+	theme = "dark",
+	colorSchemes = {
+		dark = {
+			Main = Color3.fromRGB(40, 40, 45),
+			Secondary = Color3.fromRGB(30, 30, 35),
+			Icon = Color3.fromRGB(255, 255, 255),
+			Text = Color3.fromRGB(255, 255, 255),
+			SecondaryText = Color3.fromRGB(200, 200, 200),
+			Accept = Color3.fromRGB(60, 40, 200),
+			Dismiss = Color3.fromRGB(60, 60, 65)
+		}
+	},
+	closeOpened = nil
+}
+
+function notifications:notify(options)
+	local theme = self.colorSchemes[notifications.theme]
+	local callbacksBool = options.Accept or options.Dismiss
+	options.Title = options.Title or "Notification"
+	if not callbacksBool then
+		options.Length = 3
+	end
+	if self.closeOpened then
+		self.closeOpened()
+	end
+
+	local mainFrame = gui:object("Frame", {
+		Size = UDim2.fromOffset(400, (callbacksBool and 100) or 56),
+		Position = UDim2.new(1, -20, 1, -10),
+		AnchorPoint = Vector2.new(1, 1),
+		BackgroundColor3 = theme.Main,
+		Visible = false,
+		BackgroundTransparency = 1 --
+	}):round()
+
+	local content = mainFrame:object("Frame", {
+		Size = UDim2.new(1, 0, 1, ((callbacksBool and -44) or 0)),
+		BackgroundTransparency = 1
+	})
+
+	local icon = content:object("ImageLabel", {
+		Image = (options.Icon and ("rbxassetid://" .. tostring(options.Icon))) or "rbxassetid://6031071053",
+		BackgroundTransparency = 1,
+		ImageColor3 = theme.Icon,
+		AnchorPoint = Vector2.new(0, 0.5),
+		Position = UDim2.new(0, 15, 0.5, 0),
+		Size = UDim2.fromOffset(30, 30),
+		ImageTransparency = 1
+	})
+
+	local title = content:object("TextLabel", {
+		TextColor3 = theme.Text,
+		Font = Enum.Font.SourceSansSemibold,
+		TextSize = 18,
+		Position = UDim2.fromOffset(60, 10),
+		Size = UDim2.new(1, -70, 0, 18),
+		TextXAlignment = Enum.TextXAlignment.Left,
+		BackgroundTransparency = 1,
+		Text = options.Title,
+		RichText = true,
+		TextTransparency = 1 --
+	})
+
+	local description; if options.Description then
+		description = content:object("TextLabel", {
+			TextColor3 = theme.SecondaryText,
+			Font = Enum.Font.SourceSans,
+			TextSize = 18,
+			Position = UDim2.new(0, 60, 1, -10),
+			Size = UDim2.new(1, -70, 1, 0),
+			TextXAlignment = Enum.TextXAlignment.Left,
+			BackgroundTransparency = 1,
+			AnchorPoint = Vector2.new(0, 1),
+			Text = options.Description,
+			TextWrapped = true,
+			RichText = true,
+			TextTransparency = 1 --
+		})
+	end
+
+	local callbacksContainer; if callbacksBool then 
+		callbacksContainer = mainFrame:object("Frame", {
+			Size = UDim2.new(1, 0, 0, 44),
+			AnchorPoint = Vector2.new(0, 1),
+			Position = UDim2.fromScale(0, 1),
+			BackgroundColor3 = theme.Secondary,
+			BackgroundTransparency = 1 --
+		}):round()
+
+		local roundCorrection = callbacksContainer:object("Frame", {
+			Size = UDim2.fromScale(1, 0.5),
+			BackgroundColor3 = theme.Secondary,
+			BackgroundTransparency = 1 --
+		})
+	end
+
+	local close
+
+	local acceptButton; if options.Accept then
+		options.Accept.Callback = options.Accept.Callback or function() end
+		acceptButton = callbacksContainer:object("TextButton", {
+			Size = UDim2.new(0, 100, 0.5, 0),
+			Position = UDim2.fromScale(0.5, 0.5),
+			BackgroundColor3 = theme.Accept,
+			AnchorPoint = Vector2.new(0.5, 0.5),
+			TextColor3 = theme.Text,
+			Font = Enum.Font.SourceSans,
+			TextSize = 18,
+			Text = options.Accept.Text or "Yes",
+			BackgroundTransparency = 1, --
+			TextTransparency = 1 --
+		}):round()
+
+		if acceptButton.TextBounds.X > 100 then
+			acceptButton.Size = UDim2.new(0, acceptButton.TextBounds.X + 10, 0.5, 0)
+		end
+
+		acceptButton.MouseButton1Click:connect(function()
+			options.Accept.Callback()
+			close()
+		end)
+	end
+
+	local dismissButton; if options.Dismiss then
+		options.Dismiss.Callback = options.Dismiss.Callback or function() end
+		dismissButton = callbacksContainer:object("TextButton", {
+			Size = UDim2.new(0, 100, 0.5, 0),
+			Position = UDim2.fromScale(0.5, 0.5),
+			BackgroundColor3 = theme.Dismiss,
+			AnchorPoint = Vector2.new(0.5, 0.5),
+			TextColor3 = theme.Text,
+			Font = Enum.Font.SourceSans,
+			TextSize = 18,
+			Text = options.Dismiss.Text or "No",
+			BackgroundTransparency = 1, --
+			TextTransparency = 1 --
+		}):round()
+
+		if dismissButton.TextBounds.X > 100 then
+			dismissButton.Size = UDim2.new(0, dismissButton.TextBounds.X + 10, 0.5, 0)
+		end
+
+		dismissButton.MouseButton1Click:connect(function()
+			options.Dismiss.Callback()
+			close()
+		end)
+	end
+
+	local closing = false
+
+	close = function()
+		closing = true
+		self.closeOpened = nil
+		spawn(function()
+			icon:tween{ImageTransparency = 1}
+			title:tween{TextTransparency = 1}
+			if description then description:tween{TextTransparency = 1} end
+			if acceptButton then acceptButton:tween{BackgroundTransparency = 1, TextTransparency = 1} end
+			if dismissButton then dismissButton:tween{BackgroundTransparency = 1, TextTransparency = 1} end
+			task.wait(0.15)
+			if callbacksContainer then callbacksContainer:tween{BackgroundTransparency = 1} end
+			task.wait(0.1)
+			mainFrame:tween{BackgroundTransparency = 1, Position = UDim2.new(1, -20, 1, -10)}
+			task.wait(0.25)
+			mainFrame.AbsoluteObject:Destroy()
+		end)
+	end
+
+	self.closeOpened = close
+
+	if options.Description and description.TextBounds.Y > 18 then
+		mainFrame.Size = UDim2.fromOffset(mainFrame.AbsoluteSize.X, description.TextBounds.Y + (38 + ((callbacksBool and 44) or 0)))
+	end
+
+	mainFrame.Size = UDim2.fromOffset(math.clamp(math.max((((acceptButton and acceptButton.AbsoluteSize.X) or 100) + ((dismissButton and dismissButton.AbsoluteSize.X) or 100) + 30) or 230, 70 + description.TextBounds.X), 230, 400), mainFrame.AbsoluteSize.Y)
+
+	description.Size = UDim2.new(1, -70, 0, description.TextBounds.Y)
+
+	if options.Accept and options.Dismiss then
+		acceptButton.Position = UDim2.new(0.5, 5, 0.5, 0)
+		acceptButton.AnchorPoint = Vector2.new(0, 0.5)
+		dismissButton.Position = UDim2.new(0.5, -5, 0.5, 0)
+		dismissButton.AnchorPoint = Vector2.new(1, 0.5)
+	end
+
+	mainFrame.Visible = true
+
+	spawn(function()
+		mainFrame:tween{BackgroundTransparency = 0, Position = UDim2.new(1, -20, 1, -20)}
+		task.wait(0.1)
+		if callbacksContainer then callbacksContainer:tween{BackgroundTransparency = 0} end
+		task.wait(0.15)
+		icon:tween{ImageTransparency = 0}
+		title:tween{TextTransparency = 0}
+		if description then description:tween{TextTransparency = 0} end
+		if acceptButton then acceptButton:tween{BackgroundTransparency = 0, TextTransparency = 0} end
+		if dismissButton then dismissButton:tween{BackgroundTransparency = 0, TextTransparency = 0} end
+		if options.Length then
+			task.wait(options.Length)
+			if not closing then
+				close()
+			end
+		end
+	end)
+end
+
+function notifications:notification(options)
+	self:notify(options)
+end
+
+function notifications:message(options)
+	self:notify(options)
+end
+
+return notifications
